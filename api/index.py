@@ -1,12 +1,18 @@
+from pathlib import Path
 from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 app = FastAPI()
 
-app.mount("/static", StaticFiles(directory="static"), name="static")
+# Dynamically find the absolute path of the 'api' folder
+BASE_DIR = Path(__file__).resolve().parent
 
-templates = Jinja2Templates(directory="templates")
+# Configure Jinja2 templates directory
+templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))
+
+# Mount static files (CSS, JS, Images)
+app.mount("/static", StaticFiles(directory=str(BASE_DIR / "static")), name="static")
 
 posts: list[dict] = [
     {
