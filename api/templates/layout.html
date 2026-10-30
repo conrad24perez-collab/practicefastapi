@@ -72,54 +72,7 @@
   </head>
   <body class="d-flex flex-column min-vh-100">
     <header class="site-header">
-      <nav class="navbar navbar-expand-md bg-steel fixed-top"
-           data-bs-theme="dark">
-        <div class="container">
-          <a class="navbar-brand me-4" href="{{ url_for("home") }}">FastAPI Blog</a>
-          <button class="navbar-toggler"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#navbarToggle"
-                  aria-controls="navbarToggle"
-                  aria-expanded="false"
-                  aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarToggle">
-            <div class="navbar-nav me-auto">
-              <a class="nav-link active"
-                 aria-current="page"
-                 href="{{ url_for("home") }}">Home</a>
-            </div>
-            <!-- Navbar Right Side -->
-            <div class="navbar-nav">
-              <a class="btn btn-outline-light mb-2 mb-md-0 me-md-2" href="#">Login</a>
-              <a class="btn btn-light mb-2 mb-md-0 me-md-3" href="#">Register</a>
-              <div class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle"
-                   href="#"
-                   role="button"
-                   id="bd-theme"
-                   data-bs-toggle="dropdown"
-                   aria-expanded="false">
-                  <span id="bd-theme-text">🌗 Auto</span>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bd-theme">
-                  <li>
-                    <button class="dropdown-item" type="button" data-bs-theme-value="light">🌝 Light</button>
-                  </li>
-                  <li>
-                    <button class="dropdown-item" type="button" data-bs-theme-value="dark">🌚 Dark</button>
-                  </li>
-                  <li>
-                    <button class="dropdown-item" type="button" data-bs-theme-value="auto">🌗 Auto</button>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
+      {% include "layout/navbar.html" %}
     </header>
 
     <main role="main" class="container">
@@ -129,7 +82,7 @@
           {% endblock content %}
         </div>
         <aside class="col-md-4">
-          {% include "sidebar.html" %}
+          {% include "layout/sidebar.html" %}
         </aside>
       </div>
     </main>
